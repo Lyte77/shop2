@@ -1,0 +1,23 @@
+{% extends 'shop/base.html' %}
+
+
+{% block title %} Add Product {% endblock title  %}
+
+{% block content %}
+    <!-- <form action="" id="categoryForm"></form> -->
+<div class="container">
+
+    <div class="form-group">
+
+        <form action="" method="post" enctype="multipart/form-data" id="categoryForm">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary ">Add Product</button>
+           
+    </div>
+      
+
+        <!-- <input type="submit" value="Add Product"> -->
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+
+{% block content %}
+<main class="container my-4">
+    <h3 class="my-4 border-bottom pb-1 text-dark">Categories</h3>
+    <div class="row">
+        
+            {% for cat in category %}
+            <div class="col-md-3 mb-4">
+                    <div class="card shadow">
+
+                        <a href="{% url 'shop:category-product-list' cat.id %}"> <img src="{{ cat.image.url  }}" alt="{{ cat.name }}" class="card-img-top"></a>
+                        <div class="card-body">
+                            <h6 class="card-text">{{ cat.name }}</h6>
+                        </div>
+                    </div>
+            </div>
+            {% endfor %}
+        
+    </div>
+</main>
+{% endblock %} 

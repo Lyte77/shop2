@@ -1,0 +1,98 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %} Welcome {% endblock %}
+{% block content %}
+
+
+
+    <!-- slideshow -->
+    <section id="slideshow">
+        <div>
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img class="slide-show" src="{% static 'images/image1.jpg' %}" height="200px" width="500px" alt="gadget">
+                    GADGETS
+                    
+                  </div>
+                  <div class="carousel-item">
+                    <img class="slide-show" src="{% static 'images/appleiwatch3.jpg' %}" height="200px" width="500px" alt="gadget">
+                    APPLE IWATCH
+                  </div>
+                  <div class="carousel-item">
+                    <img class="slide-show" src="{% static 'images/carops5.jpg' %}" height="200px" width="500px" alt="gadget">
+                    PLAY STATION
+                  </div>
+                  <div class="carousel-item">
+                    <img class="slide-show" src="{% static 'images/carotv1 - Copy.jpg' %}" height="200px" width="500px" alt="gadget">
+                    TELEVISIONS
+                  </div>
+                  <div class="carousel-item">
+                    <img class="slide-show" src="{% static 'images/caromacbook.jpg' %}" height="200px" width="500px" alt="gadget">
+                    MACBOOKS
+                  </div>
+                  <div class="carousel-item">
+                    <img class="slide-show" src="{% static 'images/image6.jpg' %}" height="200px" width="500px" alt="gadget">
+                    ACCESSORIES
+                  </div>
+                  <div class="carousel-item">
+                    <img class="slide-show" src="{% static 'images/caroiphone.jpg' %}" height="200px" width="500px" alt="gadget">
+                    IPHONES
+                  </div>
+                  <div class="carousel-item">
+                    <img class="slide-show" src="{% static 'images/image8.jpg' %}" height="200px" width="500px" alt="gadget">
+                    LAPTOPS
+                  </div>
+                </div>
+              </div>
+         </section>
+        </div>
+
+            <!-- Product display sections -->
+           
+            <!-- Products section -->
+            <section>
+
+              <div class="container">
+                <div class="row" id="product-list">
+                  {% for product in products %}
+                  <div class="col-md-4">
+                    <div class="card mb-4">
+                      <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}" width="200" height="200" >
+                      <div class="card-body text-center">
+                        
+                        <h5 class="card-title"> {{ product.name }}</h5>
+                        <div class="price">
+                          <p class="card-text font-weight-bold"># {{ product.new_price }}</p>
+                          <p class="card-text text-muted"><del>#{{ product.old_price}}</del></p>
+
+                        </div>
+
+                        
+                      </div>
+                      {% if request.user.is_authenticated %}
+                      <div class="container">
+                        <div class="row justify-content-center">
+
+                          <div class="col-sm-auto">
+    
+                            <a href="{% url 'shop:product_delete' product.id %}">
+                              <button class="btn btn-warning " >Remove</button>
+                            </a>
+                          </div>
+                          <div class=" col-sm-auto">
+    
+                            <a href="{% url 'shop:edit' product.id %}">
+                              <button class="btn btn-primary">Edit</button>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      {% endif %}
+                    </div>
+                  </div>
+                  {% endfor %}
+            </section>
+              
+            
+{% endblock %}

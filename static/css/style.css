@@ -1,0 +1,145 @@
+
+.logo{
+    margin-left: 1%;
+}
+
+.navbar-brand{
+    color: azure;
+    
+}
+
+.nav-link{
+
+    color: azure;
+}
+
+h4 {
+
+    color: azure;
+    font-family: Montserrat-Bold;
+    font-size: smaller;
+
+}
+
+
+h3 {
+
+    color: azure;
+    font-family: Montserrat-Bold;
+    font-size: large;
+}
+
+h5 {
+
+    color: #8f8f8f;
+
+}
+
+
+.carousel-item {
+
+
+    padding: 6%;
+    padding-bottom: 5%;
+    margin-top: -6%;
+
+    
+}
+#slideshow{
+    
+   
+    text-align: center;
+
+    
+}
+
+
+.space {
+
+    background-color: #8f8f8f;
+}
+
+
+.search {
+
+    padding: 1% 5%;
+    margin: 5%;
+}
+
+#phone {
+    background-color: grey;
+    padding: 3%;
+    
+}
+
+.row {
+padding: 7%;
+margin: 1% 1%;
+
+}
+
+.bless {
+    padding: 2%;
+    margin: auto;
+    border-radius: 10%;
+
+}
+
+.lapi {
+color: black;
+margin: auto;
+border-radius: 25%;
+}
+
+#laptops {
+    background-color: white;
+    padding: 3%;
+}
+
+#iwatch {
+    background-color: black;
+    padding: 3%;
+}
+
+#features {
+    padding: 7% 15%;
+}
+
+
+.feature-box {
+    text-align: center;
+    padding: 5%;
+}
+
+.change {
+    text-align: center;
+    padding: 15% 15%;
+    
+}
+
+p {
+    size: 100%;
+}
+
+#last {
+    background-color: black;
+    color: azure;
+}
+
+.card:hover {
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Example shadow effect on hover */
+    transform: scale(1.05); /* Example: Increase size on hover */
+  }
+
+.price{
+    display: inline-block;
+}
+
+.new-price{
+    font-weight: bold;
+}
+
+.old-price{
+    color: #999;
+    text-decoration: line-through;
+}
