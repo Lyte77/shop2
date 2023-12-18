@@ -17,11 +17,11 @@ class AddProductForm(forms.ModelForm):
                 'class':'form-control'
             }),
 
-            
+
             'image':forms.FileInput(attrs={
                 'accept': 'image/*',
                 'class':'form-control'
-                
+
             }),
 
             'new_price':forms.NumberInput(attrs={
@@ -32,27 +32,50 @@ class AddProductForm(forms.ModelForm):
                 'class':'form-control'
             }),
 
+<<<<<<< Updated upstream
+
             'description':forms.Textarea(attrs={
                 'class':'form-control',
                 'placeholder':'Optional'
             }),
-                
-
-           
 
 
-        
+
+
+
+
+
+
+
+
+=======
+
+
+
+
+
+
+>>>>>>> Stashed changes
         }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args,**kwargs)
         self.fields['category'].queryset = Category.objects.all()
 
+
+<<<<<<< Updated upstream
     def __init__(self, *args, **kwargs):
         super(AddProductForm, self).__init__(*args, **kwargs)
         self.fields['description'].required = False
 
-   
+
+
+
+
+=======
+>>>>>>> Stashed changes
+
+
 
 class EditProductForm(forms.ModelForm):
     class Meta:
@@ -70,5 +93,5 @@ class EditProductForm(forms.ModelForm):
 class SearchForm(forms.Form):
     query = forms.CharField(label='Search', max_length=100)
 
-    
+
 
