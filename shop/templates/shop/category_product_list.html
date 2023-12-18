@@ -12,21 +12,21 @@
           <div class="card-body text-center">
             <h5 class="card-title">{{ product.name }}</h5>
             <div class="price">
-              <p class="card-text font-weight-bold">#{{ product.new_price}}</p>
-              <p class="card-text font-muted"><del>#{{ product.old_price}}</del></p>
+              <p class="card-text font-weight-bold">${{ product.new_price}}</p>
+              <p class="card-text font-muted"><del>${{ product.old_price}}</del></p>
             </div>
           </div>
-          {% if request.user.is_authenticaated %}
+          {% if request.user.is_authenticated %}
             <div class="container">
               <div class="row justify-content-center">
-                <div class="col-sm-auto">
+                <div class="col-sm-auto col-6">
                   <a href="{% url 'shop:product_delete' producct.id %}">
                     <button class="btn btn-warning">Remove</button>
                   </a>
                   
                 </div>
 
-                <div class="col-sm-auto">
+                <div class="col-sm-auto col-6">
                   <a href="{% url 'shop:edit' product.id %}">
                     <button class="btn btn-primary">Edit</button>
                   </a>

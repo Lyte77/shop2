@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class AddProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['name','category','image','new_price','old_price']
+        fields = ['name','category','image','new_price','old_price','description']
         widgets = {
 
             'name':forms.TextInput(attrs={
@@ -31,6 +31,11 @@ class AddProductForm(forms.ModelForm):
             'old_price':forms.NumberInput(attrs={
                 'class':'form-control'
             }),
+
+            'description':forms.Textarea(attrs={
+                'class':'form-control',
+                'placeholder':'Optional'
+            }),
                 
 
            
@@ -43,12 +48,16 @@ class AddProductForm(forms.ModelForm):
         super().__init__(*args,**kwargs)
         self.fields['category'].queryset = Category.objects.all()
 
+    def __init__(self, *args, **kwargs):
+        super(AddProductForm, self).__init__(*args, **kwargs)
+        self.fields['description'].required = False
+
    
 
 class EditProductForm(forms.ModelForm):
     class Meta:
         model = Product
-        fields = ['name','image','new_price']
+        fields = ['name','image','new_price','description']
         widgets = {
             'image':forms.FileInput(attrs={
                 'accept': 'image/*'

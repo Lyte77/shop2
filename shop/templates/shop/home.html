@@ -63,27 +63,31 @@
                         
                         <h5 class="card-title"> {{ product.name }}</h5>
                         <div class="price">
-                          <p class="card-text font-weight-bold"># {{ product.new_price }}</p>
-                          <p class="card-text text-muted"><del>#{{ product.old_price}}</del></p>
+                          <p class="card-text font-weight-bold">$ {{ product.new_price }}</p>
+                          <p class="card-text text-muted"><del>${{ product.old_price}}</del></p>
 
                         </div>
-
+                       
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{ product.id }}">
+                          View {{ product.name }}
+                        </button>
+                        
                         
                       </div>
                       {% if request.user.is_authenticated %}
                       <div class="container">
                         <div class="row justify-content-center">
 
-                          <div class="col-sm-auto">
+                          <div class="col-sm-auto col-3 p-3">
     
                             <a href="{% url 'shop:product_delete' product.id %}">
                               <button class="btn btn-warning " >Remove</button>
                             </a>
                           </div>
-                          <div class=" col-sm-auto">
+                          <div class=" col-sm-auto col-3 p-3">
     
                             <a href="{% url 'shop:edit' product.id %}">
-                              <button class="btn btn-primary">Edit</button>
+                              <button class="btn btn-primary " >Edit</button>
                             </a>
                           </div>
                         </div>
@@ -93,6 +97,39 @@
                   </div>
                   {% endfor %}
             </section>
-              
+ 
+            
+            <!-- Modal section -->
+
+            <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+{% for product in products %}
+<div class="modal fade" id="exampleModal{{ product.id }}" tabindex="-1" aria-labelledby="exampleModalLabel{{ product.id }}" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ product.name }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+        <img src="{{ product.image.url }}" class="img-fluid mx-auto d-block" alt="{{ product.name }}" width="200" height="200" >
+        <div class="price">
+          <p class="card-text font-weight-bold text-center">$ {{ product.new_price }}</p>
+          <p class="card-text text-muted text-center"><del>${{ product.old_price}}</del></p>
+          <p class="card-text text-center">{{ product.description }}</p>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
             
 {% endblock %}
